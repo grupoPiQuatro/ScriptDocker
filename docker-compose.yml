@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:5.7
+
+    container_name: "containerBD"
+
+    volumes:
+      - ./mysql-script:/docker-entrypoint-initdb.d
+
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_ROOT_PASSWORD: urubu100
+      MYSQL_USER: monitormind
+      MYSQL_PASSWORD: urubu100
+      MYSQL_DATABASE: MonitorMind
