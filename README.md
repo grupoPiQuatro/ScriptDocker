@@ -1,8 +1,18 @@
 # ScriptDocker
-##Script para criação de containers<br>
-Este script cria um container em mysql com as tabelas que podem ser ajustadas no script da pasta <b>mysql-script.<br><br>
+<h3>Script de autimatização de criação de containers</h3>
+Este é um projeto de automação para instanciação de containers.<br>
+Neste caso é criado um container com uma imagem <b>mysql 5.7</b>.<br>
+As tabelas podem ser editadas no script da pasta <b>mysql-script/script.sql</b>.<br>
 
-### Comandos uteis
+<h3>removeEnv.sh</h3>
+  - executa codigos que deixam todos os containers executados em stop antes de removelos.<br>
+<h3>run.sh</h3>
+  - executa os comandos shell para instalação do <bold>docker</bold> e <bold>docker-compose</bold><br>
+<h3>docker-compose.yml</h3>
+  - sendo uma solução <bold>devops</bold>, os arquivos .yml instanciam containers de forma automatizada.<br>
+    (é um arquivo muito sensivel, qualquer virgula pode quebrar a automação)
+
+# Comandos uteis
 Stop em todos os containers<br>
 docker stop $(docker ps -a -q)<br><br>
 
