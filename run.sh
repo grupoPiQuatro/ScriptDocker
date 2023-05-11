@@ -7,15 +7,23 @@ then
         docker compose version
         if [ $? -eq 0 ]
 	then
-            echo iniciando banco de dados...
-            sleep 2
-            docker compose up -d
-            echo container do banco iniciado!!
-            sleep 2
-            echo tabelas criadas
+                sudo docker ps | grep containerBD
+                if [ $? -eq 0 ]
+                then
+			sleep 2
+                        echo container banco de dados já iniciado
+                else
+                        git clone https://github.com/grupoPiQuatro/ScriptDocker.git
+                        cd ScriptDocker
+                        echo iniciando banco de dados...
+                        sleep 2
+                        sudo docker compose up -d
+                        echo container do banco iniciado!!
+                        sleep 2
+                        echo tabelas criadas
+                        cd ..
+		fi
         else
-	    sudo gpasswd -a $USER docker
-            newgrp docker
 	    echo instalando docker compose...
     	    sleep 2
     	    sudo apt-get update
@@ -28,14 +36,15 @@ then
 	    sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 	    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 	    echo docker compose instalado
-	    docker compose version
+	    sudo docker compose version
             sleep 2
             echo iniciando banco de dados...
             sleep 2
-            docker compose up -d
+            sudo docker compose up -d
             echo container do banco iniciado!!
             sleep 2
             echo tabelas criadas
+            cd ..
 	fi
 else
         echo instalando o docker...
@@ -43,8 +52,6 @@ else
         sudo apt install docker.io -y
 	sleep 2
 	echo docker instalado consucesso!!
-	sudo gpasswd -a $USER docker
-	newgrp docker
     	echo instalando docker compose...
     	sleep 2
         sudo apt-get update
@@ -57,11 +64,12 @@ else
         sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     	echo docker compose instalado
-    	docker compose version
+    	sudo docker compose version
         echo iniciando banco de dados...
         sleep 2
-        docker compose up -d
+        sudo docker compose up -d
         echo container do banco iniciado!!
         sleep 2
         echo tabelas criadas
+        cd ..
 fi
