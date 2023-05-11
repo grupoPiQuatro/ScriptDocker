@@ -13,6 +13,8 @@ then
 			sleep 2
                         echo container banco de dados já iniciado
                 else
+	                sudo gpasswd -a $USER docker
+                        newgrp docker
                         git clone https://github.com/grupoPiQuatro/ScriptDocker.git
                         cd ScriptDocker
                         echo iniciando banco de dados...
@@ -26,6 +28,8 @@ then
         else
 	    echo instalando docker compose...
     	    sleep 2
+            sudo gpasswd -a $USER docker
+            newgrp docker
     	    sudo apt-get update
 	    sudo apt-get install ca-certificates curl gnupg
 	    sudo apt-get install docker-compose-plugin
@@ -49,6 +53,8 @@ then
 else
         echo instalando o docker...
 	sleep 2
+        sudo gpasswd -a $USER docker
+        newgrp docker
         sudo apt install docker.io -y
 	sleep 2
 	echo docker instalado consucesso!!
