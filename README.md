@@ -27,3 +27,6 @@ docker system prune<br><br>
 
 remover volumes<br>
 docker system prune --all --force --volumes<br><br>
+
+atualizar grupo (isso mata o script)<br>
+newgrp group_name
