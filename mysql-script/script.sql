@@ -1,3 +1,4 @@
+create database MonitorMind;
 use MonitorMind;
 
 create table Empresa (
@@ -14,7 +15,7 @@ email varchar (45),
 senha varchar (45),
 tipo varchar(6),
 constraint ctTipo check (tipo in ('Owner', 'Admin', 'Normal')),
-fkEmpresa int,
+fkEmpresa int, 
 constraint ctFkEmpresaUser foreign key (fkEmpresa) references Empresa (idEmpresa),
 primary key (idUsuario, fkEmpresa)
 );
@@ -26,7 +27,7 @@ numero varchar(7),
 fkEmpresa int,
 constraint ctFkEmpresaEnd foreign key (fkEmpresa) references Empresa (idEmpresa),
 primary key (idEndereco, fkEmpresa)
-);
+); 
 
 create table Localizacao (
 idLocalizacao int primary key auto_increment,
@@ -47,12 +48,22 @@ foreign key (fkTipo) references tipoComponente (idTipoComponente)
 );
 
 create table Computador (
-serialComputador varchar(15) primary key,
-sistemaOperacional varchar(45),
+hostname varchar(45) primary key,
 status varchar(15),
 constraint ctStatus check (status in ('Operando', 'Manutenção', 'Interrompido')),
+sistemaOperacional varchar(45),
+mac varchar(45),
 fkLocalizacao int,
-constraint ctFkLocalizacao foreign key (fkLocalizacao) references Localizacao (idLocalizacao),
+foreign key (fkLocalizacao) references Localizacao (idLocalizacao),
 fkEmpresa int,
-constraint ctFkEmpresa foreign key (fkEmpresa) references Empresa (idEmpresa)
+foreign key (fkEmpresa) references Empresa (idEmpresa)
 );
+
+INSERT INTO Empresa (nomeEmpresa, cnpj, telefone) values ('Contax', '12345678901234', '1187878787');
+INSERT INTO Usuario (nomeUsuario, email, senha, tipo, fkEmpresa) VALUES ('MonitorMind','monitormind@email.com', '123', 'Owner', 1);
+INSERT INTO Endereco (cep, numero, fkEmpresa) VALUES ('05163020', '8', 1);
+INSERT INTO tipoComponente (nome) values ('rede');
+INSERT INTO tipoComponente (nome) values ('ram');
+INSERT INTO tipoComponente (nome) values ('cpu');
+INSERT INTO tipoComponente (nome) values ('ssd');
+INSERT INTO tipoComponente (nome) values ('hd');
