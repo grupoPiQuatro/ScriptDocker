@@ -1,4 +1,3 @@
-create database MonitorMind;
 use MonitorMind;
 
 create table Empresa (
