@@ -58,6 +58,14 @@ fkEmpresa int,
 foreign key (fkEmpresa) references Empresa (idEmpresa)
 );
 
+create table Config(
+idConfig int primary key auto_increment,
+fkComputador varchar(45),
+fkComponente int,
+foreign key (fkComputador) references Computador(hostname),
+foreign key (fkComponente) references Componente(idComponente)
+);
+
 INSERT INTO Empresa (nomeEmpresa, cnpj, telefone) values ('Contax', '12345678901234', '1187878787');
 INSERT INTO Usuario (nomeUsuario, email, senha, tipo, fkEmpresa) VALUES ('MonitorMind','monitormind@email.com', '123', 'Owner', 1);
 INSERT INTO Endereco (cep, numero, fkEmpresa) VALUES ('05163020', '8', 1);
