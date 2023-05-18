@@ -83,18 +83,6 @@ select * from Componente;
 select * from tipoComponente;
 select * from Localizacao;
 
-truncate empresa;
-truncate endereco;
-truncate usuario;
-truncate computador;
-truncate componente;
-truncate Localizacao;
-
-drop table componente;
-drop table tipoComponente;
-drop table computador;
-drop table localizacao;
-
 INSERT INTO Empresa (nomeEmpresa, cnpj, telefone) values ('Contax', '12345678901234', '1187878787');
 INSERT INTO Usuario (nomeUsuario, email, senha, tipo, fkEmpresa) VALUES ('Nathan David','nathan@.com', '123', 'Owner', 1);
 INSERT INTO Endereco (cep, numero, fkEmpresa) VALUES ('05163020', '8', 1);
