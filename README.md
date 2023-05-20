@@ -29,4 +29,7 @@ remover volumes<br>
 docker system prune --all --force --volumes<br><br>
 
 atualizar grupo (isso mata o script)<br>
-newgrp group_name
+newgrp group_name<br><br>
+
+para ver os logs de um container<br>
+sudo docker container logs --follow container_name
