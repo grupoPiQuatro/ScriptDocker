@@ -1,4 +1,7 @@
+# Esta branch corresponde a arquitetura 1 e deve ser utilizada apenas no projeto com jframe
+
 # ScriptDocker
+
 <h3>Script de autimatização de criação de containers</h3>
 Este é um projeto de automação para instanciação de containers.<br>
 Neste caso é criado um container com uma imagem <b>mysql 5.7</b>.<br>
