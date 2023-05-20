@@ -20,7 +20,7 @@ services:
   app:
     container_name: containerJar
     
-    build: .
+    image: containerjar
 
     depends_on:
       - mysql
