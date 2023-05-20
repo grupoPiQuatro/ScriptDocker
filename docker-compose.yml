@@ -16,3 +16,12 @@ services:
 
     volumes:
     - "./mysql-script/script.sql:/docker-entrypoint-initdb.d/1.sql"
+  
+  app:
+    container_name: containerJar
+    
+    build: .
+
+    depends_on:
+      - mysql
+    tty: true
