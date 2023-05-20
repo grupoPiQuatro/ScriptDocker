@@ -1,3 +1,5 @@
+## __Essa branch deve ser utilizada apenas no projeto CLI__
+
 # ScriptDocker
 <h3>Script de autimatização de criação de containers</h3>
 Este é um projeto de automação para instanciação de containers.<br>
