@@ -1,4 +1,6 @@
-## Esta branch corresponde a arquitetura 1 e deve ser utilizada apenas no projeto com jframe
+## Arquitetura 1
+__Esta branch corresponde a arquitetura 1 e deve ser utilizada apenas no projeto com jframe__<br>
+Este usará o projeto jar presente no repositorio **JavaJar**.
 
 # ScriptDocker
 
