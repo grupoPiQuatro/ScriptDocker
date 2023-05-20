@@ -1,5 +1,5 @@
 ## Arquitetura 2
-__Esta branch corresponde a arquitetura 1 deve ser utilizada apenas no projeto CLI__
+__Esta branch corresponde a arquitetura 1 deve ser utilizada apenas no projeto CLI__<br>
 O arquivo jar encontrado na pasta **/app** deve ser atualizado caso ajam atualizações no projeto jar em **CLI**
 
 # ScriptDocker
