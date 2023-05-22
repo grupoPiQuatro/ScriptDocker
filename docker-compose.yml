@@ -21,7 +21,9 @@ services:
     container_name: containerJar
     
     image: containerjar
-
+    environment:
+      - login=${LOGIN}
+      - senha=${SENHA}
     depends_on:
       - mysql
     tty: true
