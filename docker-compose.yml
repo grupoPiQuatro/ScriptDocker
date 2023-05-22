@@ -25,4 +25,5 @@ services:
       - mysql
     tty: true
     volumes:
-      - ./my-env.txt:/app/my-env.txt:ro
+      - ./my-env.txt:/app/my-env.txt
+      - /app/my-env.txt
