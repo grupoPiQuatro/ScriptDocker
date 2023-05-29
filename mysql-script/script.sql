@@ -7,11 +7,6 @@ cnpj char(14),
 telefone char(10)
 );
 
-create table cargo (
-idCargo int primary key auto_increment,
-nivel int
-); 
-
 create table Usuario (
 idUsuario int auto_increment,
 nomeUsuario varchar (45),
@@ -54,7 +49,7 @@ foreign key (fkTipo) references tipoComponente (idTipoComponente)
 create table Computador (
 hostname varchar(45) primary key,
 status varchar(15),
-constraint ctStatus check (status in ('Operando', 'Manutenção', 'Interrompido', 'Desativado')),
+constraint ctStatus check (status in ('Operando', 'Manutenção', 'Interrompido')),
 sistemaOperacional varchar(45),
 mac varchar(45),
 fkLocalizacao int,
@@ -73,44 +68,11 @@ foreign key (fkComponente) references Componente(idComponente)
 
 create table Metrica(
 idMetrica int primary key auto_increment,
-valor double,
+valor float,
 unidade varchar(45),
 dtCaptura datetime,
 fkConfig int,
 foreign key (fkConfig) references Config(idConfig)
-);
-
-create table HistoricoReinicar(
-idHistoricoReiniciar int primary key auto_increment,
-tempoReiniciar int,
-dtCaptura datetime,
-fkComputador varchar(45),
-foreign key (fkComputador) references computador (hostname)
-);
-
-create table Alertas(
-idAlerta int primary key auto_increment,
-tipoAlerta varchar(45)
-);
-
-create table AlertaHistorico(
-idHistoricoAlerta int primary key auto_increment,
-fkAlerta int,
-foreign key (fkAlerta) references alertas (idAlerta),
-fkMetrica int,
-foreign key (fkMetrica) references metrica (idMetrica),
-dtCaptura datetime
-);
-
-create table Parametros(
-idParametros int primary key auto_increment,
-fkEmpresa int, 
-foreign key (fkEmpresa) references empresa (idEmpresa),
-fkTipo int,
-foreign key (fkTipo) references tipoComponente (idTipoComponente),
-fkAlerta int,
-foreign key (fkAlerta) references alertas (idAlerta),
-valor double
 );
 
 select * from Empresa;
