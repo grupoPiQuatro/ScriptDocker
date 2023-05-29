@@ -1,6 +1,6 @@
 use MonitorMind;
 
-create table empresa (
+create table Empresa (
 idEmpresa int primary key auto_increment,
 nomeEmpresa varchar(45),
 cnpj char(14),
@@ -12,7 +12,7 @@ idCargo int primary key auto_increment,
 nivel int
 ); 
 
-create table usuario (
+create table Usuario (
 idUsuario int auto_increment,
 nomeUsuario varchar (45),
 email varchar (45),
@@ -24,7 +24,7 @@ constraint ctFkEmpresaUser foreign key (fkEmpresa) references Empresa (idEmpresa
 primary key (idUsuario, fkEmpresa)
 );
 
-create table endereco (
+create table Endereco (
 idEndereco int auto_increment,
 cep char(8),
 numero varchar(7),
@@ -33,7 +33,7 @@ constraint ctFkEmpresaEnd foreign key (fkEmpresa) references Empresa (idEmpresa)
 primary key (idEndereco, fkEmpresa)
 ); 
 
-create table localizacao (
+create table Localizacao (
 idLocalizacao int primary key auto_increment,
 setor varchar(45)
 );
@@ -43,7 +43,7 @@ idTipoComponente int primary key auto_increment,
 nome varchar(45)
 );
 
-create table componente (
+create table Componente (
 idComponente int primary key auto_increment,
 numeroChave double,
 unidadeMedida varchar(45),
@@ -51,7 +51,7 @@ fkTipo int,
 foreign key (fkTipo) references tipoComponente (idTipoComponente)
 );
 
-create table computador (
+create table Computador (
 hostname varchar(45) primary key,
 status varchar(15),
 constraint ctStatus check (status in ('Operando', 'Manutenção', 'Interrompido', 'Desativado')),
@@ -63,7 +63,7 @@ fkEmpresa int,
 foreign key (fkEmpresa) references Empresa (idEmpresa)
 );
 
-create table config(
+create table Config(
 idConfig int primary key auto_increment,
 fkComputador varchar(45),
 fkComponente int,
@@ -71,7 +71,7 @@ foreign key (fkComputador) references Computador(hostname),
 foreign key (fkComponente) references Componente(idComponente)
 );
 
-create table metrica(
+create table Metrica(
 idMetrica int primary key auto_increment,
 valor double,
 unidade varchar(45),
@@ -80,7 +80,7 @@ fkConfig int,
 foreign key (fkConfig) references Config(idConfig)
 );
 
-create table historicoReinicar(
+create table HistoricoReinicar(
 idHistoricoReiniciar int primary key auto_increment,
 tempoReiniciar int,
 dtCaptura datetime,
@@ -88,12 +88,12 @@ fkComputador varchar(45),
 foreign key (fkComputador) references computador (hostname)
 );
 
-create table alertas(
+create table Alertas(
 idAlerta int primary key auto_increment,
 tipoAlerta varchar(45)
 );
 
-create table alertaHistorico(
+create table AlertaHistorico(
 idHistoricoAlerta int primary key auto_increment,
 fkAlerta int,
 foreign key (fkAlerta) references alertas (idAlerta),
@@ -102,7 +102,7 @@ foreign key (fkMetrica) references metrica (idMetrica),
 dtCaptura datetime
 );
 
-create table parametros(
+create table Parametros(
 idParametros int primary key auto_increment,
 fkEmpresa int, 
 foreign key (fkEmpresa) references empresa (idEmpresa),
