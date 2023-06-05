@@ -24,3 +24,5 @@ services:
     depends_on:
       - mysql
     tty: true
+    volumes:
+      - /:/host
