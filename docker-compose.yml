@@ -32,5 +32,3 @@ services:
     tty: true
     volumes:
       - /:/host
-    networks: 
-      - my_network
