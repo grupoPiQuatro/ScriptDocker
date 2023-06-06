@@ -14,9 +14,11 @@ services:
       MYSQL_USER: monitormind
       MYSQL_PASSWORD: urubu100
       MYSQL_DATABASE: MonitorMind
-      
+
     volumes:
     - "./mysql-script/script.sql:/docker-entrypoint-initdb.d/1.sql"
+    networks:
+      - mynetwork
   
   app:
     container_name: containerJar
@@ -27,3 +29,9 @@ services:
     tty: true
     volumes:
       - /:/host
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
