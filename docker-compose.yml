@@ -1,9 +1,5 @@
 version: '3.8'
 
-networks: 
-  my_network: 
-    driver: bridge
-
 services:
   mysql:
     image: mysql:8
@@ -18,8 +14,7 @@ services:
       MYSQL_USER: monitormind
       MYSQL_PASSWORD: urubu100
       MYSQL_DATABASE: MonitorMind
-      networks: 
-        - my_network
+      
     volumes:
     - "./mysql-script/script.sql:/docker-entrypoint-initdb.d/1.sql"
   
