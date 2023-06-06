@@ -37,3 +37,6 @@ newgrp group_name<br><br>
 
 para ver os logs de um container<br>
 sudo docker container logs --follow container_name
+
+## Comando de instalação da GUI
+sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
